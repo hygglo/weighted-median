@@ -1,0 +1,16 @@
+{
+  "name": "weighted-median",
+  "version": "0.0.0",
+  "description": "Get the weighted median of some data",
+  "main": "index.js",
+  "repository": "https://github.com/hygglo/weighted-median",
+  "author": "hygglo.se",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  }
+}
