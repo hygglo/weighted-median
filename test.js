@@ -3,6 +3,10 @@
 const w = require('./');
 
 describe('Weighted median', () => {
+  test('returns undefined with empty array', () => {
+    expect(w([])).toBeUndefined();
+  });
+
   test('works with single element', () => {
     expect(w([{ value: 1, weight: 1 }])).toEqual(1);
   });

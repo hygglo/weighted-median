@@ -7,6 +7,10 @@
  * @returns {Number}
  */
 const weightedMedian = (unsortedRows) => {
+  if (unsortedRows.length === 0) {
+    return;
+  }
+
   // sort by value
   const rows = unsortedRows.sort((a, b) => a.value - b.value);
 
