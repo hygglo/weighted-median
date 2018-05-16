@@ -1,6 +1,6 @@
 {
   "name": "weighted-median",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get the weighted median of some data",
   "main": "index.js",
   "repository": "https://github.com/hygglo/weighted-median",
