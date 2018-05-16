@@ -1,19 +1,33 @@
+// @ts-check
 'use strict';
 
-const weightedMedian = (rows, p = 0, r = rows.length - 1) => {
-  //base case for single element
-  if (p === r) {
-    return rows[p].value;
+/**
+ *
+ * @param {Array<{ value: Number, weight: Number }>} unsortedRows
+ * @returns {Number}
+ */
+const weightedMedian = (unsortedRows) => {
+  // sort by value
+  const rows = unsortedRows.sort((a, b) => a.value - b.value);
+
+  const totalWeight = rows.reduce((sum, { weight }) => weight + sum, 0);
+
+  const halfWeight = totalWeight / 2;
+  let i = 0;
+  let w = 0;
+
+  // get the index (i) and total weight (w) of item just above half
+  for (; w < totalWeight / 2; ++i) {
+    w = w + rows[i].weight;
   }
 
-  // base case for two elements
-  if (r - p === 1) {
-    if (rows[p].weight === rows[r].weight) {
-      return (rows[p].value + rows[r].value) / 2;
-    }
-
-    return rows[p].weight > rows[r].weight ? rows[p].value : rows[r].value;
+  // if it actually is exactly the half, we need to take the average
+  if (w === halfWeight) {
+    return (rows[i - 1].value + rows[i].value) / 2;
   }
+
+  // otherwise we return the value
+  return rows[i - 1].value;
 };
 
 module.exports = weightedMedian;
