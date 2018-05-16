@@ -10,14 +10,12 @@ const weightedMedian = (unsortedRows) => {
   // sort by value
   const rows = unsortedRows.sort((a, b) => a.value - b.value);
 
-  const totalWeight = rows.reduce((sum, { weight }) => weight + sum, 0);
-
-  const halfWeight = totalWeight / 2;
+  const halfWeight = rows.reduce((sum, { weight }) => weight + sum, 0) / 2;
   let i = 0;
   let w = 0;
 
   // get the index (i) and total weight (w) of item just above half
-  for (; w < totalWeight / 2; ++i) {
+  for (; w < halfWeight; ++i) {
     w = w + rows[i].weight;
   }
 
